@@ -10,27 +10,60 @@
 
 /*font-family: 'Poppins', sans-serif;*/
 :root {
-    --gray: #f1f0f6;
-    --dark-grey: #8d8d8d;
-    --light: #fff;
-    --dark: #000;
-    --green: #81d43a;
-    --light-green: #e3ffcb;
-    --blue: #1775f1;
-    --light-blue: #d0e4ff;
-    --dark-blue: #0c5fcd;
-    --red: #fc3b56;
+    --orange: hsl(36, 80%, 50%);
+    --white: #fff;
+    --WHITE: hsl(0, 0%, 100%);
+    --BLACK: hsl(0, 0%, 100%);
+    --black-90: hsl(0, 0%, 10%);
+    --black-70: hsl(0, 0%, 30%);
+    --black-alpha-40: hsla(0, 0%, 0%, 0.4);
+    --yellow-light: hsl(44, 95%, 83%);
+    --green-light: hsl(158, 68%, 75%);
+    --red-light: hsl(0, 62%, 67%);
+    --orange-light: hsl(22, 85%, 80%);
+    --select-box-bg-color: hsl(0, 0%, 100%);
+    --border-color-1: hsl(0, 2%, 70%);
+    --card-background-color: hsl(211, 42%, 22%);
+    --card-bg-color: hsl(236, 40%, 16%);
+    --box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+}
+body.t-dark {
+    --body-bg-color: hsl(229, 27%, 8%);
+    --black-70: hsl(0, 0%, 87%);
+    --black-90: hsl(0, 0%, 100%);
+    --shadow: 0 0 10px hsla(0, 0%, 0%, .08);
+    --white: hsl(229, 27%, 8%);
+    --select-box-bg-color: hsl(240, 8%, 21%);
+    --border-color-2: hsl(240, 8%, 25%);
+    --border-color-1: hsl(240, 9%, 30%);
+    --card-background-color: hsl(211, 42%, 22%);
+    --card-bg-color: hsl(236, 40%, 16%);
 }
 body {
-    background: var(--gray);
+    background: var(--body-bg-color);
+    font-family: 'Poppins', sans-serif;
+    color: var(--black-70);
+}
+h1,h2,h3,h4,h5 {
+    color: var(--main-color);
     font-family: 'Poppins', sans-serif;
 }
-
+a:hover,
+a {
+    color: var(--main-color);
+}
+::selection {
+    color: var(--WHITE);
+    background-color: var(--main-color);
+}
+/*ul,li, span {*/
+/*    color: var(--black-90);*/
+/*}*/
 #sidebar {
     position: fixed;
     max-width: 260px;
     width: 100%;
-    background: var(--light);
+    background: var(--white);
     height: 100%;
     top: 0;
     left: 0;
@@ -38,6 +71,7 @@ body {
     scrollbar-width: none;
     transition: max-width 0.3s ease-in-out;
     z-index: 200;
+    box-shadow: var(--box-shadow);
 }
 #sidebar.hide {
     max-width: 60px;
@@ -52,13 +86,13 @@ body {
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    border: 2px solid var(--dark-grey);
+    border: 2px solid var(--black-70);
+    background: var(--WHITE);
     margin: .5rem auto;
     position: sticky;
     top: 0;
     left: 0;
     z-index: 999;
-    background: var(--light);
     transition: all 0.3s ease-in-out;
 }
 
@@ -81,12 +115,12 @@ body {
     display: flex;
     align-items: center;
     font-size: 14px;
-    color: var(--dark);
     padding: 12px 16px 12px;
     transition: all 0.3s ease;
     border-radius: 10px;
     margin: 4px 0;
     gap: 10px;
+    color: var(--black-90);
 }
 #sidebar .side-menu a .icon {
     width: 24px;
@@ -97,23 +131,27 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 18px;
+    color: var(--main-color);
 }
-
+#sidebar .side-menu  > li >  a:hover .icon,
+#sidebar .side-menu > li > a.active .icon {
+    color: var(--black-90);
+}
 #sidebar .side-menu  > li >  a:hover {
-    background: var(--gray);
+    background: var(--main-color);
 }
 
 #sidebar .side-menu > li > a.active,
 #sidebar .side-menu > li > a.active:hover {
-    background: var(--blue);
-    color: var(--light);
+    background: var(--main-color);
+    color: var(--WHITE);
 }
 #sidebar .divider {
     margin-top: 24px;
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 700;
-    color: var(--dark-grey);
+    color: var(--main-color);
     transition: all 0.3s ease;
 }
 #sidebar.hide .divider {
@@ -128,9 +166,10 @@ body {
     display: none;
 }
 #sidebar .ads .wrapper {
-    background: var(--gray);
+    background: var(--white);
     padding: 20px;
     border-radius: 10px;
+    box-shadow: var(--box-shadow);
 }
 #sidebar .btn-upgrade {
     font-size: 14px;
@@ -138,19 +177,18 @@ body {
     justify-content: center;
     align-items: center;
     padding: 12px 0;
-    color: var(--light);
-    background: var(--blue);
+    color: var(--black-90);
+    background: var(--main-color);
     transition: all 0.3s ease;
     border-radius: 5px;
     font-weight: 600;
     margin-bottom: 12px;
 }
 #sidebar .btn-upgrade:hover {
-    background: var(--dark-blue);
+    background: var(--button-hover-color);
 }
 #sidebar .ads .wrapper p {
     font-size: 12px;
-    color: var(--dark-grey);
     text-align: center;
 }
 #sidebar .ads .wrapper p span {
@@ -163,13 +201,13 @@ body {
     width: calc(100% - 260px);
     left: 260px;
     transition: all 0.3s ease-in-out;
+    overflow-x: hidden;
 }
 #sidebar.hide + #content {
     width: calc(100% - 60px);
     left: 60px;
 }
 nav {
-    background: var(--light);
     height: 64px;
     padding: 0 20px;
     display: flex;
@@ -179,7 +217,7 @@ nav {
     top: 0;
     left: 0;
     z-index: 999;
-    box-shadow: 4px 4px 16px rgba(0,0,0, .05);
+    box-shadow: var(--box-shadow);
 }
 nav .toggle-sidebar {
     font-size: 18px;
@@ -195,29 +233,31 @@ nav .form-group {
 }
 nav .form-group input {
     width: 100%;
-    background: var(--gray);
+    background: transparent;
     border-radius: 5px;
     padding: 10px 36px 10px 16px;
     border: none;
     outline: none;
     transition: all 0.3s ease;
+    box-shadow: var(--box-shadow);
+    color: var(--WHITE);
 }
 nav .form-group input:focus {
-    box-shadow: 0 0 0 2px var(--light-blue), 0 0 0 1px var(--light-blue);
+    box-shadow: var(--box-shadow);
 }
 nav .form-group span {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 16px;
-    color: var(--dark-grey);
+    color: var(--black-90);
 }
 nav .nav-link {
     position: relative;
 }
 nav .nav-link .badge {
     font-size: 18px;
-    color: var(--dark);
+    color: var(--main-color);
 }
 nav .nav-link .count {
     position: absolute;
@@ -226,18 +266,18 @@ nav .nav-link .count {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 2px solid var(--light);
-    background: var(--red);
+    border: 2px solid var(--white);
+    background: var(--red-light);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 10px;
-    color: var(--light);
+    color: var(--WHITE);
 }
 
 nav .divider {
     width: 1px;
-    background: var(--gray);
+    background: var(--black-90);
     height: 12px;
     display: block;
 }
@@ -248,7 +288,7 @@ nav .profile img {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: 2px solid var(--dark-grey);
+    border: 2px solid var(--border-color-1);
     object-fit: cover;
     cursor: pointer;
 }
@@ -257,13 +297,14 @@ nav .profile .profile-link {
     right: 0;
     top: calc(100% + 10px);
     padding: 10px 0;
-    box-shadow: 4px 4px 16px rgba(0,0,0, .1);
-    background: var(--light);
+    box-shadow: var(--box-shadow);
+    background: var(--white);
     border-radius:10px;
     width: 160px;
     opacity: 0;
     pointer-events: none;
     transition: max-height 0.3s ease, opacity 0.3s ease, top 0.3s ease;
+    z-index: 9999;
 }
 nav .profile .profile-link.show {
     opacity: 1;
@@ -275,13 +316,14 @@ nav .profile .profile-link a {
     display: block;
     grid-gap: 10px;
     font-size: 14px;
-    color: var(--dark);
+    color: var(--black-70);
     align-items: center;
     transition: all 0.3s ease;
 }
+
 nav .profile .profile-link a:hover {
-    background: var(--gray);
-    color: var(--dark);
+    background: var(--main-color);
+    color: var(--WHITE);
 }
 
 main {
@@ -300,10 +342,11 @@ main .breadcrumbs {
 main .breadcrumbs li,
 main .breadcrumbs li a {
     font-size: 14px;
+    color: var(--main-color);
 }
 main .breadcrumbs li a.active,
 main .breadcrumbs li.divider {
-    color: var(--dark-grey);
+    color: var(--black-70);
     pointer-events: none;
 }
 main .info-data {
@@ -315,8 +358,8 @@ main .info-data {
 main .info-data .card {
     padding: 20px;
     border-radius: 10px;
-    background: var(--light);
-    box-shadow: 4px 4px 16px rgba(0,0,0, .05);
+    background: var(--white);
+    box-shadow: var(--box-shadow);
 }
 main .info-data .card .head {
     display: flex;
@@ -333,7 +376,6 @@ main .info-data .card p  {
 }
 main .info-data .card .head span{
     font-size: 20px;
-    color: var(--green);
 }
 main .info-data .card .card-footer {
     display: block;
@@ -341,7 +383,6 @@ main .info-data .card .card-footer {
 }
 main .info-data .card .card-footer p {
     font-weight: 300;
-    color: var(--dark-grey);
 }
 main .data {
     display: flex;
@@ -353,9 +394,9 @@ main .data .content-data {
     flex-grow: 1;
     flex-basis: 400px;
     padding: 20px;
-    background: var(--light);
+    background: var(--white);
     border-radius: 10px;
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+    box-shadow: var(--box-shadow);
 }
 main .data .content-data .head {
     display: flex;
@@ -380,9 +421,9 @@ main .data .content-data .head .menu-link {
     top: calc(100% + 10px);
     right: 0;
     width: 140px;
-    background: var(--light);
+    background: var(--white);
     border-radius: 10px;
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+    box-shadow: var(--box-shadow);
     z-index: 100;
     padding: 10px 0;
     opacity: 0;
@@ -398,11 +439,11 @@ main .data .content-data .head .menu-link a {
     display: block;
     padding: 6px 16px;
     font-size: 14px;
-    color: var(--dark);
     transition: all 0.3s ease;
+    color: var(--black-90);
 }
 main .data .content-data .head .menu-link a:hover {
-    background: var(--gray);
+    background: var(--main-color);
 }
 /* Table Styles */
 
@@ -420,7 +461,6 @@ main .data .content-data .head .menu-link a:hover {
     width: 100%;
     max-width: 100%;
     white-space: nowrap;
-    background-color: white;
 }
 
 .fl-table td, .fl-table th {
@@ -428,24 +468,24 @@ main .data .content-data .head .menu-link a:hover {
     padding: 8px;
 }
 
-.fl-table td {
-    border-right: 1px solid #f8f8f8;
+.fl-table td:not(:last-child) {
+    border-right: 1px solid var(--black-90);
     font-size: 12px;
 }
 
 .fl-table thead th {
-    color: var(--dark);
-    background: var(--light-blue);
+    color: var(--white);
+    background: var(--card-background-color);
 }
 
-
 .fl-table thead th:nth-child(odd) {
-    color: #ffffff;
-    background: #324960;
+    color: var(--black-70);
+    background: var(--card-bg-color);
 }
 
 .fl-table tr:nth-child(even) {
-    background: #F8F8F8;
+    background: var(--white);
+    color: var(--black-70);
 }
 
 /* Responsive */
@@ -505,7 +545,7 @@ main .data .content-data .head .menu-link a:hover {
     }
     .fl-table thead th {
         text-align: left;
-        border-bottom: 1px solid #f7f7f9;
+        border-bottom: 1px solid var(--black-90);
     }
     .fl-table tbody tr {
         display: table-cell;
@@ -517,14 +557,152 @@ main .data .content-data .head .menu-link a:hover {
         background: transparent;
     }
     .fl-table tr td:nth-child(odd) {
-        background: #F8F8F8;
-        border-right: 1px solid #E6E4E4;
+        background: var(--card-bg-color);
+        border-right: 1px solid var(--black-90);
     }
     .fl-table tr td:nth-child(even) {
-        border-right: 1px solid #E6E4E4;
+        border-right: 1px solid var(--black-90);
     }
     .fl-table tbody td {
         display: block;
         text-align: center;
     }
+}
+/* Style switcher */
+.style-switcher {
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    right: -250px;
+    top: 0;
+    background: var(--white);
+    z-index: 999;
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease-in-out;
+}
+.style-switcher.open {
+    right: 0;
+}
+.style-switcher h3 {
+    font-size: 18px;
+    text-transform: capitalize;
+    padding: 0 0 10px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color-1);
+}
+.style-switcher-item {
+    padding: 15px 0;
+   border-bottom: 1px solid var(--border-color-1);
+}
+.theme-colors {
+    margin-top: 20px;
+}
+.theme-colors button {
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 50%;
+    vertical-align: middle;
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+}
+.icon::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.theme-colors button::before {
+    content: "\2713";
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--WHITE);
+    transition: all .3s ease;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+.theme-colors button.active::before {
+    opacity: 1;
+}
+.theme-colors p {
+    margin-bottom: 15px;
+}
+.theme-colors .color-1 {
+    background-color: hsl(0, 74%, 61%);
+}
+.theme-colors .color-2 {
+    background-color: hsl(211, 42%, 22%);
+}
+.theme-colors .color-3 {
+    background-color: hsl(36, 74%, 61%);
+}
+.theme-colors .color-4 {
+    background-color: hsl(261, 56%, 50%);
+}
+.theme-colors .color-5 {
+    background-color: hsl(211, 48%, 53%);
+}
+.style-switcher-toggler {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 15%;
+    left: -40px;
+    background-color: var(--main-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+}
+.switch_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+input[type="checkbox"].switch_1{
+    font-size: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 2.5em;
+    height: 1.2em;
+    background: #ddd;
+    border-radius: 3em;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+input[type="checkbox"].switch_1:checked{
+    background: var(--main-color);
+}
+
+input[type="checkbox"].switch_1:after{
+    position: absolute;
+    content: "";
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
+    box-shadow: 0 0 .25em rgba(0,0,0,.3);
+    -webkit-transform: scale(.7);
+    transform: scale(.7);
+    left: 0;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+input[type="checkbox"].switch_1:checked:after{
+    left: calc(100% - 1.2em);
 }

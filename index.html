@@ -14,16 +14,16 @@
     <meta property="og:description" content="A simple HTML5 Template for new projects.">
     <meta property="og:image" content="image.png">
 
-    <link rel="icon" href="/favicon.ico">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,800;1,900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/fontawesome.all.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/fontawesome.all.min.css">
+    <link rel="stylesheet" class="js-color-style" href="css/colors/color-1.css">
 
 </head>
 <body>
@@ -77,9 +77,9 @@
         <div class="profile">
             <img src="images/placeholder.png" alt="">
             <ul class="profile-link">
-                <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
-                <li><a href=""><i class="fa fa-cogs"></i> Settings</a></li>
-                <li><a href=""><i class="fa fa-lock"></i> Logout</a></li>
+                <li><a href=""><span class="fa fa-user"></span> Profile</a></li>
+                <li><a href=""><span class="fa fa-cogs"></span> Settings</a></li>
+                <li><a href=""><span class="fa fa-lock"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -368,6 +368,28 @@
 
     </main>
 </section>
+<div class="style-switcher js-style-switcher">
+ <div class="style-switcher-toggler js-style-switcher-toggler">
+     <i class="fa fa-cog"></i>
+ </div>
+    <h3>Style Switcher</h3>
+    <div class="style-switcher-item">
+        <p>Theme Colors</p>
+        <div class="js-theme-colors theme-colors">
+            <button class="js-theme-color-item color-1" data-js-theme-color="color-1" type="button"></button>
+            <button class="js-theme-color-item color-2" data-js-theme-color="color-2" type="button"></button>
+            <button class="js-theme-color-item color-3" data-js-theme-color="color-3" type="button"></button>
+            <button class="js-theme-color-item color-4" data-js-theme-color="color-4" type="button"></button>
+            <button class="js-theme-color-item color-5" data-js-theme-color="color-5" type="button"></button>
+        </div>
+    </div>
+    <div class="style-switcher-item">
+        <div class="switch_box box_1">
+            <input type="checkbox" class="switch_1 js-dark-mode" role="switch" id="dark-mode">
+            <label for="dark-mode" class="">Dark Mode</label>
+        </div>
+    </div>
+</div>
 
 <script src="js/fontawesome.all.min.js"></script>
 <script src="js/main.js"></script>
